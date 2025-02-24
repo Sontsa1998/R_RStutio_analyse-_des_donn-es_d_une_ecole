@@ -86,6 +86,9 @@ ggplot(display_result_group_by, aes(x= age, y = somme)) +
   geom_point(color="blue", size=4)+
   labs(xlab="AGE", ylab="SOMMES", title = "Etude moyenne de la population en fonction des ages", caption = "Etude statistique en fonction de l'age - Rapport de 1999 - 2008")
 
+#Ecrivons le resultat dans un nouveau fichier  csv le resultat de notre requete
+write.csv(select_people_with_less_than_10, file = "results.csv", row.names = FALSE)
+
 
 
 
