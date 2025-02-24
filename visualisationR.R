@@ -80,18 +80,24 @@ display_result_group_by
 
 prop.table(table(select_people_with_less_than_10$age))
 
-#Faisons le visuel des points
-ggplot(p<-eda_data, aes(x= age, y = college)) + geom_point()
-p<-p + labs(
-  title = "Fuel Economic in Age per GP",
-  subtitle = " Data from 1999 to 2008",
-  x = "Engine Dislacement, in liters",
-  y = "Highway miles per gallon",
-  caption = "MPG data from the ggplot2 package"
-)
 
-ggplot(p<- eda_data) + geom_histogram(aes(x = gp))
-  
-p<- p + aes(y = gp) + labs(title = 'Fuel economic for of cars ', x='Engine displacement, in liters', y='Highway miles per gallon' , caption = 'MPG data from ggplot 2  package')
- 
-p
+#Faisons le visuel des points
+ggplot(display_result_group_by, aes(x= age, y = somme)) + 
+  geom_point(color="blue", size=4)+
+  labs(xlab="AGE", ylab="SOMMES", title = "Etude moyenne de la population en fonction des ages", caption = "Etude statistique en fonction de l'age - Rapport de 1999 - 2008")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
