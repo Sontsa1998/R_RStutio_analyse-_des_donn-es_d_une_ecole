@@ -30,6 +30,7 @@ fill(eda_data)
 
 # Statistique avec filtre 
 summary(eda_data)
+table(eda_data$pts)
 
 #reduire le dataset pour faire une visualisation 
 select_joueur_de_moins_de_20_ans = subset(eda_data, age <= 18)
@@ -37,13 +38,16 @@ View(select_joueur_de_moins_de_20_ans)
 ggplot(select_joueur_de_moins_de_20_ans) + geom_point(aes(x = player_weight, y = gp), color="green", size=5, alpha=0.3)
 
 #faisons les boxplot
-ggplot(select_joueur_de_moins_de_20_ans) + geom_boxplot(aes(x= age, y = player_height), color='blue', fill = "wheat", varwidth = TRUE)
+ggplot(select_joueur_de_moins_de_20_ans) + 
+  geom_boxplot(aes(x= age, y = Height), color='blue', fill = "blue", varwidth = TRUE)
 
 #Geom_bar
-ggplot(select_joueur_de_moins_de_20_ans) + geom_bar(aes(x = age), color="cyan", fill="cyan", varwidth=TRUE)
+ggplot(eda_data) + 
+  geom_bar(aes(x = age), color="cyan", fill="cyan", varwidth=TRUE)
 
 #Geom_col
-ggplot(select_joueur_de_moins_de_20_ans) + geom_col(aes(x = gp, y = player_name))
+ggplot(select_joueur_de_moins_de_20_ans) + 
+  geom_col(aes(x = gp, y = Name))
 
 
 table(eda_data$player_name) #Permet de voir les statistiques
@@ -55,10 +59,10 @@ colnames(eda_data)[2] = "Name"
 colnames(eda_data)[8] = "Pays"
 View(eda_data)
 
-#creons une nouvelle qui prendra le nombre de point de chaque joueur * son gp
+#creons une nouvelle colonne  qui prendra le nombre de point de chaque joueur * son gp
 eda_data$Score_total<- eda_data$pts * eda_data$gp 
 View(eda_data)
-
+eda_data$
 #selectionnons les scores total dont la somme est supérieure a 50 (je veux juste les noms , l'age, les points, les gp ainsi que les scoretotal)
 
 colnames(eda_data)[3] = "Team"
